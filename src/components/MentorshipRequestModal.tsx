@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { X, Send } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import { institutionName } from '../lib/appConfig';
 
 export const MentorshipRequestModal: React.FC = () => {
-  const { requestModalAlumni, setRequestModalAlumni, submitMentorshipRequest, setIsTrackerOpen } = useAlumBridge();
+  const { requestModalAlumni, setRequestModalAlumni, submitMentorshipRequest, setIsTrackerOpen } = useWarmConnect();
 
   const [topic, setTopic] = useState('');
   const [message, setMessage] = useState('');

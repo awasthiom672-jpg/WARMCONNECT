@@ -4,7 +4,7 @@
  */
 
 import React, { lazy, Suspense } from 'react';
-import { AlumBridgeProvider } from './context/AlumBridgeContext';
+import { WarmConnectProvider } from './context/WarmConnectContext';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { FeatureStrip } from './components/FeatureStrip';
@@ -16,7 +16,7 @@ import { OpportunitySection } from './components/OpportunitySection';
 import { CareerJourneyTimeline } from './components/CareerJourneyTimeline';
 import { Footer } from './components/Footer';
 import { Toast } from './components/Toast';
-import { useAlumBridge } from './context/AlumBridgeContext';
+import { useWarmConnect } from './context/WarmConnectContext';
 
 const CareerGoalFinderModal = lazy(() => import('./components/CareerGoalFinderModal').then((module) => ({ default: module.CareerGoalFinderModal })));
 const AlumniProfileModal = lazy(() => import('./components/AlumniProfileModal').then((module) => ({ default: module.AlumniProfileModal })));
@@ -38,7 +38,7 @@ function AppContent() {
     legalDocModal,
     isAuthModalOpen,
     isAdminPanelOpen,
-  } = useAlumBridge();
+  } = useWarmConnect();
   const handleOpenSearch = () => {
     const explorerEl = document.getElementById('alumni-explorer');
     if (explorerEl) {
@@ -60,7 +60,7 @@ function AppContent() {
           Directory data is temporarily unavailable. Check your Supabase setup and network connection.
         </div>
       ) : dataLoading ? (
-        <div className="mt-[76px] border-b border-white/10 bg-[#0B0C10] px-4 py-2 text-center text-[11px] text-[#9FA6B2]">Connecting to AlumBridge…</div>
+        <div className="mt-[76px] border-b border-white/10 bg-[#0B0C10] px-4 py-2 text-center text-[11px] text-[#9FA6B2]">Connecting to WARMCONNECT…</div>
       ) : null}
 
       <main className="flex-1">
@@ -90,8 +90,8 @@ function AppContent() {
 
 export default function App() {
   return (
-    <AlumBridgeProvider>
+    <WarmConnectProvider>
       <AppContent />
-    </AlumBridgeProvider>
+    </WarmConnectProvider>
   );
 }

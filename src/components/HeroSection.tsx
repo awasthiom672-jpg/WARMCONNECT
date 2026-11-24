@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback, Suspense, lazy } from 'react';
 import { ArrowUpRight, Compass, ShieldCheck, Sparkles, CheckCircle2, Award, Users } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import { institutionName } from '../lib/appConfig';
 
 const SphericalSculptureCanvas = lazy(() =>
@@ -8,7 +8,7 @@ const SphericalSculptureCanvas = lazy(() =>
 );
 
 export const HeroSection: React.FC = () => {
-  const { setIsGoalFinderOpen, setActiveProfile, setRequestModalAlumni, alumni, isDemoMode } = useAlumBridge();
+  const { setIsGoalFinderOpen, setActiveProfile, setRequestModalAlumni, alumni, isDemoMode } = useWarmConnect();
   const stageRef = useRef<HTMLDivElement>(null);
 
   const targetCoords = useRef({ x: 0, y: 0 });
@@ -535,7 +535,7 @@ export const HeroSection: React.FC = () => {
                 <div className="relative z-10 w-full max-w-sm rounded-2xl border border-white/15 bg-[#111318]/90 p-7 text-center backdrop-blur">
                   <div className="mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10"><Users className="h-5 w-5 text-[#D4D8E1]" /></div>
                   <h2 className="text-sm font-medium text-[#F5F5F7]">Your alumni network starts here</h2>
-                  <p className="mt-2 text-xs leading-relaxed text-[#9FA6B2]">Alumni profiles appear here after an AlumBridge administrator approves their submitted evidence.</p>
+                  <p className="mt-2 text-xs leading-relaxed text-[#9FA6B2]">Alumni profiles appear here after an WARMCONNECT administrator approves their submitted evidence.</p>
                   <button type="button" onClick={() => setIsGoalFinderOpen(true)} className="mt-5 rounded-full border border-white/20 px-5 py-2.5 text-xs font-medium uppercase tracking-wider text-[#F5F5F7] hover:bg-white/5">Explore mentor matching</button>
                 </div>
               )}

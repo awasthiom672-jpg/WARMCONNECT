@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Bell, CheckCheck, X } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import { formatRelativeDate } from '../lib/date';
 
 export const NotificationCenter: React.FC = () => {
-  const { notifications, refreshNotifications, markNotificationRead, user, isDemoMode } = useAlumBridge();
+  const { notifications, refreshNotifications, markNotificationRead, user, isDemoMode } = useWarmConnect();
   const [open, setOpen] = useState(false);
   const unreadCount = notifications.filter((item) => !item.readAt).length;
 

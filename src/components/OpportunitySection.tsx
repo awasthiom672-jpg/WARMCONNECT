@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, ArrowUpRight, CheckCircle2, UserCheck, Plus, X } from 'lucide-react';
 import type { Opportunity, OpportunityType } from '../types';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import { formatDeadline, formatRelativeDate, localDateKey } from '../lib/date';
 
 const initialForm = {
@@ -15,7 +15,7 @@ export const OpportunitySection: React.FC = () => {
   const [editingOpportunityId, setEditingOpportunityId] = useState<string | null>(null);
   const [form, setForm] = useState(initialForm);
   const [submitting, setSubmitting] = useState(false);
-  const { opportunities, requestedReferralIds, referralStatuses, incomingReferralRequests, respondToReferralRequest, toggleReferralRequest, isDemoMode, dataLoading, user, createOpportunity, updateOpportunity, deleteOpportunity, setIsAuthModalOpen } = useAlumBridge();
+  const { opportunities, requestedReferralIds, referralStatuses, incomingReferralRequests, respondToReferralRequest, toggleReferralRequest, isDemoMode, dataLoading, user, createOpportunity, updateOpportunity, deleteOpportunity, setIsAuthModalOpen } = useWarmConnect();
 
   const types = ['All', 'Internship', 'Research', 'Full-Time', 'Mentorship Cohort'];
   const filteredOpportunities = opportunities.filter((opp) => selectedType === 'All' || opp.type === selectedType);

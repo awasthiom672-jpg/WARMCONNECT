@@ -40,14 +40,14 @@ import {
   deleteOpportunity as deleteOpportunityService,
   fetchUserNotifications,
   markUserNotificationRead,
-} from '../services/alumBridgeService';
+} from '../services/warmConnectService';
 
 interface ToastData {
   message: string;
   type?: 'success' | 'info' | 'error';
 }
 
-interface AlumBridgeContextType {
+interface WarmConnectContextType {
   alumni: Alumnus[];
   opportunities: Opportunity[];
   notifications: AppNotification[];
@@ -107,9 +107,9 @@ interface AlumBridgeContextType {
   deleteOpportunity: (opportunityId: string) => Promise<boolean>;
 }
 
-const AlumBridgeContext = createContext<AlumBridgeContextType | undefined>(undefined);
+const WarmConnectContext = createContext<WarmConnectContextType | undefined>(undefined);
 
-export const AlumBridgeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const WarmConnectProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const isDemoMode = !hasSupabaseConfig;
   const [alumni, setAlumni] = useState<Alumnus[]>(isDemoMode ? DEMO_ALUMNI : []);
   const [opportunities, setOpportunities] = useState<Opportunity[]>(isDemoMode ? DEMO_OPPORTUNITIES : []);
@@ -365,7 +365,7 @@ export const AlumBridgeProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       return false;
     }
     if (user.verificationStatus !== 'approved') {
-      showToast('Your alumni profile must be approved by an AlumBridge administrator before publishing opportunities.', 'error');
+      showToast('Your alumni profile must be approved by a WARMCONNECT administrator before publishing opportunities.', 'error');
       return false;
     }
     try {
@@ -619,7 +619,7 @@ export const AlumBridgeProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   }, [alumni]);
 
   return (
-    <AlumBridgeContext.Provider value={{
+    <WarmConnectContext.Provider value={{
       alumni,
       opportunities,
       notifications,
@@ -679,12 +679,12 @@ export const AlumBridgeProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       deleteOpportunity,
     }}>
       {children}
-    </AlumBridgeContext.Provider>
+    </WarmConnectContext.Provider>
   );
 };
 
-export const useAlumBridge = () => {
-  const context = useContext(AlumBridgeContext);
-  if (!context) throw new Error('useAlumBridge must be used within an AlumBridgeProvider');
+export const useWarmConnect = () => {
+  const context = useContext(WarmConnectContext);
+  if (!context) throw new Error('useWarmConnect must be used within a WarmConnectProvider');
   return context;
 };

@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { AlumBridgeProvider, useAlumBridge } from '../context/AlumBridgeContext';
+import { WarmConnectProvider, useWarmConnect } from '../context/WarmConnectContext';
 import { MentorshipRequestModal } from '../components/MentorshipRequestModal';
 import { MentorshipTrackerDrawer } from '../components/MentorshipTrackerDrawer';
 import { Toast } from '../components/Toast';
@@ -11,7 +11,7 @@ import { Navbar } from '../components/Navbar';
 import { DEMO_ALUMNI } from '../data/mockData';
 
 const WorkflowTestHarness: React.FC = () => {
-  const { setRequestModalAlumni } = useAlumBridge();
+  const { setRequestModalAlumni } = useWarmConnect();
   const rohit = DEMO_ALUMNI.find((a) => a.id === 'rohit-verma')!;
   const ananya = DEMO_ALUMNI.find((a) => a.id === 'ananya-das')!;
 
@@ -36,9 +36,9 @@ describe('Mentorship Request End-to-End Workflow', () => {
     const user = userEvent.setup();
 
     render(
-      <AlumBridgeProvider>
+      <WarmConnectProvider>
         <WorkflowTestHarness />
-      </AlumBridgeProvider>
+      </WarmConnectProvider>
     );
 
     // 1. Open request modal for Dr. Rohit Verma
@@ -103,9 +103,9 @@ describe('Mentorship Request End-to-End Workflow', () => {
     const user = userEvent.setup();
 
     render(
-      <AlumBridgeProvider>
+      <WarmConnectProvider>
         <WorkflowTestHarness />
-      </AlumBridgeProvider>
+      </WarmConnectProvider>
     );
 
     await user.click(screen.getByRole('button', { name: /open rohit request/i }));

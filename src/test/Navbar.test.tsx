@@ -3,7 +3,7 @@ import { describe, it, expect, vi } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { AlumBridgeProvider } from '../context/AlumBridgeContext';
+import { WarmConnectProvider } from '../context/WarmConnectContext';
 import { Navbar } from '../components/Navbar';
 import { CareerGoalFinderModal } from '../components/CareerGoalFinderModal';
 import { MentorshipTrackerDrawer } from '../components/MentorshipTrackerDrawer';
@@ -11,12 +11,12 @@ import { MentorshipTrackerDrawer } from '../components/MentorshipTrackerDrawer';
 describe('Navbar', () => {
   it('renders brand wordmark, primary navigation links, and request counter', () => {
     render(
-      <AlumBridgeProvider>
+      <WarmConnectProvider>
         <Navbar />
-      </AlumBridgeProvider>
+      </WarmConnectProvider>
     );
 
-    expect(screen.getByRole('link', { name: /alumbridge/i })).toHaveAttribute('href', '#top');
+    expect(screen.getByRole('link', { name: /warmconnect/i })).toHaveAttribute('href', '#top');
     expect(screen.getByRole('link', { name: /^alumni$/i })).toHaveAttribute('href', '#alumni-explorer');
     expect(screen.getByRole('link', { name: /^process$/i })).toHaveAttribute('href', '#how-it-works');
     expect(screen.getByRole('link', { name: /^network$/i })).toHaveAttribute('href', '#network-graph');
@@ -32,9 +32,9 @@ describe('Navbar', () => {
     const onOpenSearch = vi.fn();
 
     render(
-      <AlumBridgeProvider>
+      <WarmConnectProvider>
         <Navbar onOpenSearch={onOpenSearch} />
-      </AlumBridgeProvider>
+      </WarmConnectProvider>
     );
 
     await user.click(screen.getByRole('button', { name: /search alumni/i }));
@@ -45,11 +45,11 @@ describe('Navbar', () => {
     const user = userEvent.setup();
 
     render(
-      <AlumBridgeProvider>
+      <WarmConnectProvider>
         <Navbar />
         <CareerGoalFinderModal />
         <MentorshipTrackerDrawer />
-      </AlumBridgeProvider>
+      </WarmConnectProvider>
     );
 
     await user.click(screen.getByRole('button', { name: /find my mentor/i }));
@@ -66,9 +66,9 @@ describe('Navbar', () => {
     const user = userEvent.setup();
 
     render(
-      <AlumBridgeProvider>
+      <WarmConnectProvider>
         <Navbar />
-      </AlumBridgeProvider>
+      </WarmConnectProvider>
     );
 
     const toggleBtn = screen.getByRole('button', { name: /toggle navigation menu/i });

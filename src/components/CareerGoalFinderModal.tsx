@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, Search, Sparkles, Check, RefreshCw } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import { institutionName } from '../lib/appConfig';
 import { Alumnus, CareerGoalFilter } from '../types';
 
@@ -36,7 +36,7 @@ const MENTORSHIP_TOPICS = [
 ];
 
 export const CareerGoalFinderModal: React.FC = () => {
-  const { isGoalFinderOpen, setIsGoalFinderOpen, calculateMatches, setActiveProfile, setRequestModalAlumni } = useAlumBridge();
+  const { isGoalFinderOpen, setIsGoalFinderOpen, calculateMatches, setActiveProfile, setRequestModalAlumni } = useWarmConnect();
 
   const [goal, setGoal] = useState('Software Engineering & Distributed Systems');
   const [targetCompany, setTargetCompany] = useState('');

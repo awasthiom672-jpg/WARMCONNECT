@@ -1,9 +1,9 @@
 import React from 'react';
 import { CheckCircle2, AlertCircle, Info, X } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 
 export const Toast: React.FC = () => {
-  const { toast, dismissToast } = useAlumBridge();
+  const { toast, dismissToast } = useWarmConnect();
 
   if (!toast) return null;
 

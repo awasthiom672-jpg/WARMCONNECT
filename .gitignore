@@ -13,3 +13,6 @@ test-results/
 
 # Local backups
 *.bak*
+
+# Vite local cache
+.vite/

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Copy, Check, MessageSquare, RefreshCw, ArrowUpRight } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import { institutionName, productName } from '../lib/appConfig';
 
 type ToneOption = 'professional' | 'friendly' | 'concise';
 
 export const SmartIntroAssistant: React.FC = () => {
-  const { alumni, preselectedAlumnusForIntro, showToast, setRequestModalAlumni } = useAlumBridge();
+  const { alumni, preselectedAlumnusForIntro, showToast, setRequestModalAlumni } = useWarmConnect();
 
   const [selectedAlumniId, setSelectedAlumniId] = useState<string>(alumni[0]?.id ?? '');
   const [reason, setReason] = useState<string>('System Design & Backend Preparation');

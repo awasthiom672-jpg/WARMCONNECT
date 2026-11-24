@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Check, ExternalLink, LoaderCircle, RefreshCw, ShieldCheck, X, XCircle } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import {
   createVerificationDocumentUrl,
   fetchPendingVerifications,
   reviewAlumniVerification,
   type AdminVerificationItem,
-} from '../services/alumBridgeService';
+} from '../services/warmConnectService';
 import { formatRelativeDate } from '../lib/date';
 
 export const AdminReviewPanel: React.FC = () => {
-  const { isAdminPanelOpen, setIsAdminPanelOpen, user, showToast, refreshDirectory } = useAlumBridge();
+  const { isAdminPanelOpen, setIsAdminPanelOpen, user, showToast, refreshDirectory } = useWarmConnect();
   const [items, setItems] = useState<AdminVerificationItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [busyId, setBusyId] = useState<string | null>(null);

@@ -1,10 +1,10 @@
 import React from 'react';
 import { ShieldCheck } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import { institutionName, productName } from '../lib/appConfig';
 
 export const Footer: React.FC = () => {
-  const { setIsGoalFinderOpen, setLegalDocModal } = useAlumBridge();
+  const { setIsGoalFinderOpen, setLegalDocModal } = useWarmConnect();
 
   return (
     <footer className="bg-[#050507] text-[#9FA6B2] border-t border-white/10 pt-20 pb-12 text-xs">

@@ -1,6 +1,6 @@
-# AlumBridge
+# WARMCONNECT
 
-AlumBridge is an alumni discovery, mentorship and opportunity platform built with React, TypeScript, Vite and Supabase. The existing dark visual theme and main page structure have been retained.
+WARMCONNECT is an alumni discovery, mentorship and opportunity platform built with React, TypeScript, Vite and Supabase. The existing dark visual theme and main page structure have been retained.
 
 ## What is included
 
@@ -29,7 +29,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-When Supabase variables are absent, AlumBridge starts in **illustrative demo mode**. The bundled sample alumni and opportunity cards are not verified identities or live listings. Demo interactions are session-memory-only and disappear on refresh.
+When Supabase variables are absent, WARMCONNECT starts in **illustrative demo mode**. The bundled sample alumni and opportunity cards are not verified identities or live listings. Demo interactions are session-memory-only and disappear on refresh.
 
 ## Supabase setup
 

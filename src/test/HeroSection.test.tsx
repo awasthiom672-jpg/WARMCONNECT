@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 import { render, screen, fireEvent, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { AlumBridgeProvider } from '../context/AlumBridgeContext';
+import { WarmConnectProvider } from '../context/WarmConnectContext';
 import { HeroSection } from '../components/HeroSection';
 import { AlumniProfileModal } from '../components/AlumniProfileModal';
 import { CareerGoalFinderModal } from '../components/CareerGoalFinderModal';
@@ -12,9 +12,9 @@ import { MentorshipRequestModal } from '../components/MentorshipRequestModal';
 describe('HeroSection', () => {
   it('renders editorial headline, CTAs, Top Match card, and 3 floating alumni satellite cards', () => {
     render(
-      <AlumBridgeProvider>
+      <WarmConnectProvider>
         <HeroSection />
-      </AlumBridgeProvider>
+      </WarmConnectProvider>
     );
 
     expect(
@@ -35,10 +35,10 @@ describe('HeroSection', () => {
     const user = userEvent.setup();
 
     render(
-      <AlumBridgeProvider>
+      <WarmConnectProvider>
         <HeroSection />
         <AlumniProfileModal />
-      </AlumBridgeProvider>
+      </WarmConnectProvider>
     );
 
     await user.click(screen.getByRole('button', { name: /^view profile$/i }));
@@ -60,11 +60,11 @@ describe('HeroSection', () => {
     const user = userEvent.setup();
 
     render(
-      <AlumBridgeProvider>
+      <WarmConnectProvider>
         <HeroSection />
         <CareerGoalFinderModal />
         <MentorshipRequestModal />
-      </AlumBridgeProvider>
+      </WarmConnectProvider>
     );
 
     await user.click(screen.getByRole('button', { name: /find my mentor/i }));
@@ -78,9 +78,9 @@ describe('HeroSection', () => {
 
   it('handles pointer move and pointer leave on the 3D stage gracefully without layout crash', () => {
     render(
-      <AlumBridgeProvider>
+      <WarmConnectProvider>
         <HeroSection />
-      </AlumBridgeProvider>
+      </WarmConnectProvider>
     );
 
     const stage = screen.getByTestId('hero-3d-stage');

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { X, CheckCircle2, ShieldCheck, Briefcase, GraduationCap, Sparkles, MessageSquare, ArrowUpRight, MapPin, Bookmark } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import { institutionName } from '../lib/appConfig';
 
 export const AlumniProfileModal: React.FC = () => {
@@ -12,7 +12,7 @@ export const AlumniProfileModal: React.FC = () => {
     savedAlumniIds,
     toggleSaveAlumnus,
     isDemoMode
-  } = useAlumBridge();
+  } = useWarmConnect();
 
   useEffect(() => {
     if (!activeProfile) return;

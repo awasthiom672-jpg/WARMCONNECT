@@ -1,4 +1,4 @@
--- AlumBridge initial schema. Apply with: supabase db push
+-- WARMCONNECT initial schema. Apply with: supabase db push
 -- Public profile columns intentionally contain no email address or private verification data.
 
 begin;

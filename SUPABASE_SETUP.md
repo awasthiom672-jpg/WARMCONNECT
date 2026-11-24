@@ -8,7 +8,7 @@ Create a Supabase project and keep the project URL and publishable key available
 
 In the Supabase Dashboard, open **SQL Editor**, create a new query, paste the full contents of `supabase/migrations/202611230001_initial_schema.sql`, and run it. The migration is transactional and creates the tables, indexes, triggers, RLS policies and private verification bucket. It also backfills profile rows for Supabase Auth users that already existed before this migration. If Supabase reports an error, stop and resolve it before allowing sign-ups. Do not manually mark migration success if the SQL transaction failed.
 
-The migration is intended for a fresh AlumBridge schema. It creates objects under `public` and adds policies to `storage.objects`; inspect any existing objects before using it in a project that already contains application tables or policies.
+The migration is intended for a fresh WARMCONNECT schema. It creates objects under `public` and adds policies to `storage.objects`; inspect any existing objects before using it in a project that already contains application tables or policies.
 
 ## 3. Configure Supabase Auth
 

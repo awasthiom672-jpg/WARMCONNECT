@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { X, UserRound, ShieldCheck, Upload, LogOut, Eye, EyeOff } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import { supabase } from '../lib/supabase';
 
  type AuthMode = 'sign-in' | 'sign-up' | 'reset' | 'recovery' | 'account';
@@ -13,7 +13,7 @@ export const AuthModal: React.FC = () => {
     isAuthModalOpen, setIsAuthModalOpen, user, signIn, signUp, signOut,
     sendPasswordResetEmail, setNewPassword, updateProfile,
     verificationSubmission, submitVerificationDocument,
-  } = useAlumBridge();
+  } = useWarmConnect();
   const [mode, setMode] = useState<AuthMode>('sign-in');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -83,7 +83,7 @@ export const AuthModal: React.FC = () => {
     'sign-up': 'Create your account',
     reset: 'Reset your password',
     recovery: 'Choose a new password',
-    account: 'Your AlumBridge account',
+    account: 'Your WARMCONNECT account',
   }[mode]), [mode]);
 
   if (!isAuthModalOpen) return null;
@@ -200,7 +200,7 @@ export const AuthModal: React.FC = () => {
       <section role="dialog" aria-modal="true" aria-labelledby="auth-modal-title" className="relative z-10 max-h-[92vh] w-full max-w-xl overflow-y-auto rounded-2xl border border-white/15 bg-[#0B0C10] text-[#F5F5F7] shadow-2xl">
         <header className="sticky top-0 z-10 flex items-center justify-between border-b border-white/10 bg-[#0B0C10]/95 px-6 py-5 backdrop-blur">
           <div>
-            <p className="mb-1 text-[10px] uppercase tracking-[0.2em] text-[#9FA6B2]">AlumBridge · Secure access</p>
+            <p className="mb-1 text-[10px] uppercase tracking-[0.2em] text-[#9FA6B2]">WARMCONNECT · Secure access</p>
             <h2 id="auth-modal-title" className="text-xl font-medium">{title}</h2>
           </div>
           <button type="button" onClick={close} aria-label="Close account dialog" className="rounded-full p-2 text-[#9FA6B2] hover:bg-white/5 hover:text-white"><X className="h-5 w-5" /></button>
@@ -255,7 +255,7 @@ export const AuthModal: React.FC = () => {
                     <p className="text-xs leading-relaxed text-[#D4D8E1]">Latest submission: <strong className="capitalize">{verificationSubmission.status}</strong>{verificationSubmission.reviewNote ? ` · ${verificationSubmission.reviewNote}` : ''}</p>
                   ) : <p className="text-xs leading-relaxed text-[#9FA6B2]">Submit a university or employment record. Documents are stored privately and are visible only to you and authorized administrators.</p>}
                   {verificationSubmission?.status === 'approved' ? (
-                    <p className="text-xs leading-relaxed text-emerald-100">Your alumni profile has been approved by an AlumBridge administrator. No further document submission is needed.</p>
+                    <p className="text-xs leading-relaxed text-emerald-100">Your alumni profile has been approved by an WARMCONNECT administrator. No further document submission is needed.</p>
                   ) : verificationSubmission?.status !== 'pending' && (
                     <form onSubmit={handleVerification} className="space-y-3">
                       <label htmlFor="alumni-verification-file" className={labelClass}>Supporting document (PDF, PNG or JPG, max 10 MB)</label>

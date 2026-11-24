@@ -55,6 +55,6 @@ begin
   ) then
     raise exception 'Private verification-document read policy is missing';
   end if;
-  raise notice 'AlumBridge schema/security catalog smoke check passed.';
+  raise notice 'WARMCONNECT schema/security catalog smoke check passed.';
 end;
 $$;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Target, Users, MessageSquare, ArrowUpRight } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import { institutionName } from '../lib/appConfig';
 
 export const HowItWorks: React.FC = () => {
-  const { setIsGoalFinderOpen } = useAlumBridge();
+  const { setIsGoalFinderOpen } = useWarmConnect();
 
   const steps = [
     {

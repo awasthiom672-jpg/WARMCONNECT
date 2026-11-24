@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { Search, RefreshCw, ArrowUpRight, Bookmark } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import { institutionName } from '../lib/appConfig';
 
 export const AlumniExplorer: React.FC = () => {
-  const { alumni, savedAlumniIds, toggleSaveAlumnus, setActiveProfile, setRequestModalAlumni, dataLoading, dataError, hasMoreAlumni, loadingMoreAlumni, loadMoreAlumni, isDemoMode } = useAlumBridge();
+  const { alumni, savedAlumniIds, toggleSaveAlumnus, setActiveProfile, setRequestModalAlumni, dataLoading, dataError, hasMoreAlumni, loadingMoreAlumni, loadMoreAlumni, isDemoMode } = useWarmConnect();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDept, setSelectedDept] = useState<string>('All');

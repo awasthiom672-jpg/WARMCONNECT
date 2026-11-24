@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { X, ShieldCheck } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import { institutionName, productName } from '../lib/appConfig';
 
 export const LegalDocModal: React.FC = () => {
-  const { legalDocModal, setLegalDocModal } = useAlumBridge();
+  const { legalDocModal, setLegalDocModal } = useWarmConnect();
 
   useEffect(() => {
     if (!legalDocModal) return;

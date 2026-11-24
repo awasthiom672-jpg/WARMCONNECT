@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { AlumBridgeProvider } from '../context/AlumBridgeContext';
+import { WarmConnectProvider } from '../context/WarmConnectContext';
 import { AlumniExplorer } from '../components/AlumniExplorer';
 import { OpportunitySection } from '../components/OpportunitySection';
 import { SmartIntroAssistant } from '../components/SmartIntroAssistant';
@@ -14,10 +14,10 @@ describe('AlumniExplorer, OpportunitySection, and SmartIntroAssistant', () => {
     const user = userEvent.setup();
 
     render(
-      <AlumBridgeProvider>
+      <WarmConnectProvider>
         <AlumniExplorer />
         <Toast />
-      </AlumBridgeProvider>
+      </WarmConnectProvider>
     );
 
     expect(screen.getByText('8 of 8 profiles')).toBeInTheDocument();
@@ -43,10 +43,10 @@ describe('AlumniExplorer, OpportunitySection, and SmartIntroAssistant', () => {
     const user = userEvent.setup();
 
     render(
-      <AlumBridgeProvider>
+      <WarmConnectProvider>
         <OpportunitySection />
         <Toast />
-      </AlumBridgeProvider>
+      </WarmConnectProvider>
     );
 
     const referralButtons = screen.getAllByRole('button', { name: /request internal referral/i });
@@ -61,9 +61,9 @@ describe('AlumniExplorer, OpportunitySection, and SmartIntroAssistant', () => {
     const user = userEvent.setup();
 
     render(
-      <AlumBridgeProvider>
+      <WarmConnectProvider>
         <SmartIntroAssistant />
-      </AlumBridgeProvider>
+      </WarmConnectProvider>
     );
 
     const draft = screen.getByLabelText(/draft message preview/i) as HTMLTextAreaElement;

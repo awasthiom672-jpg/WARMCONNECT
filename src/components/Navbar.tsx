@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Menu, X, ArrowUpRight, Inbox, ShieldCheck, UserRound } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 import { NotificationCenter } from './NotificationCenter';
 
 interface NavbarProps {
@@ -10,7 +10,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { setIsGoalFinderOpen, setIsTrackerOpen, requests, user, setIsAuthModalOpen, setIsAdminPanelOpen } = useAlumBridge();
+  const { setIsGoalFinderOpen, setIsTrackerOpen, requests, user, setIsAuthModalOpen, setIsAdminPanelOpen } = useWarmConnect();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +49,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
               href="#top"
               className="text-lg font-medium tracking-[0.14em] uppercase text-[#F5F5F7] whitespace-nowrap shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded px-1"
             >
-              Alum<span className="font-light text-[#9FA6B2]">Bridge</span>
+              WARM<span className="font-light text-[#9FA6B2]">CONNECT</span>
             </a>
 
             {/* Zone 2: 4-5 Concise Single-line Navigation Links */}
@@ -161,7 +161,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             <div>
               <div className="flex items-center justify-between pb-6 border-b border-white/10">
                 <span className="text-base font-medium tracking-[0.14em] uppercase text-[#F5F5F7]">
-                  Alum<span className="font-light text-[#9FA6B2]">Bridge</span>
+                  WARM<span className="font-light text-[#9FA6B2]">CONNECT</span>
                 </span>
                 <button
                   type="button"
@@ -239,7 +239,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
                 Find My Mentor
               </button>
               <p className="text-center text-[11px] tracking-wider uppercase text-[#9FA6B2]/70">
-                AlumBridge Alumni Network
+                WARMCONNECT Alumni Network
               </p>
             </div>
           </div>

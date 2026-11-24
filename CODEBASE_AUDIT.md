@@ -1,4 +1,4 @@
-# AlumBridge Codebase Audit
+# WARMCONNECT Codebase Audit
 
 ## Scope and baseline
 
@@ -24,8 +24,8 @@ The source repository is a React 19 + TypeScript + Vite application using Tailwi
 
 ## Architecture summary
 
-- `src/context/AlumBridgeContext.tsx`: shared UI state, auth state, directory loading and service orchestration.
-- `src/services/alumBridgeService.ts`: Supabase data/auth/storage operations and database-to-UI mapping.
+- `src/context/WarmConnectContext.tsx`: shared UI state, auth state, directory loading and service orchestration.
+- `src/services/warmConnectService.ts`: Supabase data/auth/storage operations and database-to-UI mapping.
 - `src/lib/supabase.ts`: single optional browser client configuration.
 - `src/components`: existing site sections and new auth, notification and admin-review surfaces.
 - `supabase/migrations`: database schema, triggers, policies and storage setup.

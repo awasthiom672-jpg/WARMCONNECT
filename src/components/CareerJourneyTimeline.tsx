@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Compass, Sparkles, Send, MessageSquare, Rocket, ArrowUpRight } from 'lucide-react';
-import { useAlumBridge } from '../context/AlumBridgeContext';
+import { useWarmConnect } from '../context/WarmConnectContext';
 
 export const CareerJourneyTimeline: React.FC = () => {
   const [activeStep, setActiveStep] = useState(1);
-  const { setIsGoalFinderOpen } = useAlumBridge();
+  const { setIsGoalFinderOpen } = useWarmConnect();
 
   const journeySteps = [
     {
