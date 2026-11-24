@@ -159,7 +159,7 @@ export async function fetchAlumni(offset = 0, pageSize = 50): Promise<Alumnus[]>
   const client = requireClient();
   const { data, error } = await client
     .from('profiles')
-    .select('id, full_name, avatar_url, department, graduation_year, bio, location, skills, alumni_profiles!inner(current_title, company, degree, experience_years, mentorship_topics, available_for_mentorship, verification_status, past_milestones, advice_snippet)')
+    .select('id, full_name, avatar_url, department, graduation_year, bio, location, skills, alumni_profiles!alumni_profiles_user_id_fkey!inner(current_title, company, degree, experience_years, mentorship_topics, available_for_mentorship, verification_status, past_milestones, advice_snippet)')
     .eq('role', 'alumni')
     .eq('alumni_profiles.verification_status', 'approved')
     .order('full_name', { ascending: true })
