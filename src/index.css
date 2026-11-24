@@ -39,6 +39,8 @@
 /* Subtle metallic sheen gradient utility */
 .chrome-text {
   background: linear-gradient(135deg, #FFFFFF 0%, #D4D8E1 48%, #8F96A3 100%);
+  background-clip: text;
   -webkit-background-clip: text;
+  color: #D4D8E1;
   -webkit-text-fill-color: transparent;
 }
