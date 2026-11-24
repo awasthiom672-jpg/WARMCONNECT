@@ -1,0 +1,15 @@
+node_modules/
+dist/
+build/
+coverage/
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+supabase/.temp/
+playwright-report/
+test-results/
+
+# Local backups
+*.bak*
